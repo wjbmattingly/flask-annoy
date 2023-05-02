@@ -5,7 +5,7 @@ import pandas as pd
 from sentence_transformers import SentenceTransformer
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r'*': {'origins': '*'}})
 
 annoy_index = None
 df = None
