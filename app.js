@@ -5,7 +5,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let dataTable = $('#results-table').DataTable({
         columns: [], // Initialize with empty columns
         order: [], // Disable initial sorting
-    });
+        dom: 'Bfrtip',
+        buttons: [
+          {
+            extend: 'csvHtml5',
+            text: 'Download CSV',
+            exportOptions: {
+              modifier: {
+                search: 'applied',
+                order: 'applied'
+              }
+            }
+          }
+        ]
+      });
 
     queryForm.addEventListener("submit", async (e) => {
         e.preventDefault();
@@ -29,7 +42,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     data: data.similar_items,
                     columns: columns,
                     order: [],
-                    autoWidth: false // Add this line
+                    autoWidth: false, // Add this line
+                    dom: 'Bfrtip',
+                    buttons: [
+                      {
+                        extend: 'csvHtml5',
+                        text: 'Download CSV',
+                        exportOptions: {
+                          modifier: {
+                            search: 'applied',
+                            order: 'applied'
+                          }
+                        }
+                      }
+                    ]
+                    
                 });
 
                 // Adjust column sizes after updating the data
