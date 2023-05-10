@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                           data: key,
                           render: function(data, type, row, meta) {
                               if (type === 'display') {
-                                  data = '<a href="' + row.link + '">' + data + '</a>';
+                                  data = '<a href="/testimonies/' + row.rg.replace (/\./g, "_") + '.html#' + row.sequence + '" target="_blank">' + data + '</a>';
                               }
                               return data;
                           }
