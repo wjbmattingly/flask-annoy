@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const numResults = document.getElementById("num_results").value;
 
       try {
-          const response = await fetch(`http://127.0.0.1:5000/query?input_query=${encodeURIComponent(inputQuery)}&num_results=${encodeURIComponent(numResults)}`);
+          const response = await fetch(`https://streamlit.as.uky.edu/flask-annoy/query?input_query=${encodeURIComponent(inputQuery)}&num_results=${encodeURIComponent(numResults)}`);
           const data = await response.json();
 
           if (data.error) {
