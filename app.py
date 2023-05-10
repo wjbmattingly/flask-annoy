@@ -49,13 +49,16 @@ def query():
         return jsonify({'error': 'Please provide a valid input_query'}), 400
 
     emb = model.encode(input_query)
-    res = annoy_index.get_nns_by_vector(emb, num_results)
-    res = df.iloc[res]
-    # print(res.iloc[0])
+    res_indices, res_distances = annoy_index.get_nns_by_vector(emb, num_results, include_distances=True)
+    res = df.iloc[res_indices]
 
     # Convert DataFrame to dictionary
     res_dict = res.to_dict(orient='records')
-    print(res_dict[0])
+
+    # Add 'link' and 'distance' fields to each item in the dictionary
+    for i, item in enumerate(res_dict):
+        item['link'] = f"https://collections.ushmm.org/oh_findingaids/{item['rg']}_trs_en.pdf"
+        item['distance'] = res_distances[i]
 
     # Return JSON object with similar items
     return jsonify({'similar_items': res_dict})
