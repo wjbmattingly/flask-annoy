@@ -1,7 +1,7 @@
 # Flask-Annoy: Vector Database for Semantic Search of Holocaust Testimonies
 
 ## Introduction
-`Flask-Annoy` is in early testing. It is available [here](www.wjbmattingly.com/flask-annoy). It a unique vector database that facilitates semantic searches through approximately 1,000 testimonies from the United States Holocaust Memorial Museum. These testimonies have been transformed from their original PDF format using OCR (Optical Character Recognition) provided by Tesseract 5.0, meticulously cleaned, divided into coherent sections of dialogue, and embedded with an all-mini transformer model.
+`Flask-Annoy` is in early testing. It is available [here](https://wjbmattingly.com/flask-annoy/). It a unique vector database that facilitates semantic searches through approximately 1,000 testimonies from the United States Holocaust Memorial Museum. These testimonies have been transformed from their original PDF format using OCR (Optical Character Recognition) provided by Tesseract 5.0, meticulously cleaned, divided into coherent sections of dialogue, and embedded with an all-mini transformer model.
 
 The indexing of the data is powered by Annoy, a highly efficient library from Spotify that allows for similarity search. This data is hosted on a server at the University of Kentucky with Flask, a popular web framework for Python.
 
